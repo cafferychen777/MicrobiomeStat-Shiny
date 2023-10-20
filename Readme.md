@@ -1,15 +1,25 @@
 # Microbiome-Shiny
 
-Welcome to the Microbiome-Shiny repository, the R Shiny interface for the MicrobiomeStat R package. This readme will guide you through the process of running this application locally on your own machine.
+Welcome to the Microbiome-Shiny repository, the R Shiny interface for the MicrobiomeStat R package. This readme will guide you through the process of running this application. There are two ways to access the application: online access and local deployment.
 
-## Prerequisites
+## Online Access
+
+To access the application online, visit the following link:
+
+https://cafferyyang.shinyapps.io/MicrobiomeStat_Shiny/
+
+## Local Deployment
+
+If you want to run this application locally on your own machine, follow the steps below.
+
+### Prerequisites
 
 Before you start, you need to have R and RStudio installed on your machine. If you haven't installed them yet, you can download them from the following links:
 
 - R: https://cran.r-project.org/
 - RStudio: https://www.rstudio.com/products/rstudio/download/
 
-## Installation
+### Installation
 
 1. **Clone the Repository**: Clone/download this repository to your local machine. If you have Git installed, you can use the following command in your terminal:
 
@@ -71,7 +81,7 @@ Before you start, you need to have R and RStudio installed on your machine. If y
     install.packages(packages_to_install)
     ```
 
-## Running the Shiny Application
+### Running the Shiny Application
 
 Once you've installed all necessary packages, you can run the Shiny application by using the `runApp()` function from the `shiny` package. For example:
 
@@ -83,7 +93,7 @@ This will start the Shiny application in your local web browser.
 
 ## Current Features and Future Plans
 
-Currently, the MicrobiomeStat Shiny application supports cross-sectional design analysis and visualization. We are actively working on expanding the tool's capabilities. In the near future, we plan to add support for paired samples and longitudinal data analysis.
+The MicrobiomeStat Shiny application now supports cross-sectional design analysis, paired samples, and longitudinal data analysis. We have successfully completed the development of these comprehensive modules. We are continuously working to enhance the tool's capabilities and expand its range of features. Stay tuned for future updates and improvements.
 
 ## Troubleshooting
 
@@ -95,6 +105,6 @@ Contributions to Microbiome-Shiny are very welcome. If you have a feature reques
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. For full details of the license, please visit the [MIT License webpage](https://opensource.org/licenses/MIT).
 
 Thank you for your interest in Microbiome-Shiny!
