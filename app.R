@@ -71,12 +71,11 @@ main_ui <- fluidPage(
       ". As an alternative approach, the corresponding R package is available for direct utilization."
   ),
 
-  div(class = "footer-powered", "Powered By Chen Lab")
+  div(class = "footer-powered",
+      tags$a(href = "https://www.mayo.edu/research/faculty/chen-jun-ph-d/bio-20126134",
+             "Powered By Chen Lab")
+  )
 )
-
-
-
-
 
 main_server <- function(input, output, session) {
   server_single(input, output, session)
