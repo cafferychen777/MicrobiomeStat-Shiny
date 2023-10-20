@@ -16,67 +16,82 @@ server_single <- function(input, output, session) {
   # 用于存储生成的报告的路径
   reportPath <- reactiveVal(NULL)
 
-  observeEvent(c(input$dataFile, input$countData, input$metadata, input$taxonomy), {
+  observeEvent(c(input$single_dataFile, input$single_countData, input$single_metadata, input$single_taxonomy), {
 
-    data.obj <- processDataFiles(input)
+    data.obj <- processDataFiles(input, "single")
 
     if (!is.null(data.obj)) {
 
-      # 在server.R中调用函数
-      updateDepthChoices(data.obj, session)
+      updateDepthChoices(data.obj, session, "single_")
 
-      # 在server.R中调用函数
-      updateMetaDatChoices(data.obj, session)
+      updateMetaDatChoices(data.obj, session, "single_")
 
-      # 在server函数中调用函数
-      updateTLevelChoices(data.obj, input, session)
+      updateFeatureAnnChoices(data.obj, session, "single_")
 
-      # 在server函数中调用函数
-      updateFeatureAnnChoices(data.obj, session)
+      updateTLevelChoices(data.obj, input, session, "single_")
 
     }
 
   })
 
   # 在 server_single.R 文件中
-  observeEvent(input$runAnalysis, {
-    req(input$groupVar)
+  observeEvent(input$single_runAnalysis, {
 
-    data.obj <- processDataFiles(input)
+    req(input$single_groupVar)
+
+    data.obj <- processDataFiles(input, "single")
+
+    showModal(modalDialog(
+      title = "Analysis Started",
+      "The analysis has begun. Please be patient and wait.",
+      footer = NULL,
+      easyClose = FALSE  # 该选项禁止用户轻松关闭模态窗口，例如点击外部
+    ))
+
+    # 根据input$single_featureDatType的值调整depth参数
+    depth_value <- if (input$single_featureDatType == "proportion") NULL else input$single_depth
 
     reportFile <- mStat_generate_report_single(data.obj = data.obj,
-                                               group.var = input$groupVar,
-                                               vis.adj.vars = input$visAdjVars,
-                                               test.adj.vars = input$testAdjVars,
-                                               strata.var = input$strataVar,
-                                               subject.var = input$subjectVar,
-                                               time.var = input$timeVar,
-                                               t.level = input$tLevel,
-                                               alpha.name = input$alphaName,
-                                               depth = input$depth,
-                                               prev.filter = input$prevFilter,
-                                               abund.filter = input$abundFilter,
-                                               bar.area.feature.no = input$barAreaFeatureNo,
-                                               heatmap.feature.no = input$heatmapFeatureNo,
-                                               dotplot.feature.no = input$dotplotFeatureNo,
-                                               vis.feature.level = input$visFeatureLevel,
-                                               test.feature.level = input$testFeatureLevel,
-                                               feature.dat.type = input$featureDatType,
-                                               feature.analysis.rarafy = input$featureAnalysisRarafy,
-                                               feature.mt.method = input$featureMtMethod,
-                                               feature.sig.level = input$featureSigLevel,
-                                               feature.box.axis.transform = input$featureBoxAxisTransform,
-                                               base.size = input$baseSize,
-                                               theme.choice = input$themeChoice,
-                                               output.file = input$outputFile)
+                                               group.var = input$single_groupVar,
+                                               vis.adj.vars = input$single_visAdjVars,
+                                               test.adj.vars = input$single_testAdjVars,
+                                               strata.var = input$single_strataVar,
+                                               subject.var = input$single_subjectVar,
+                                               time.var = input$single_timeVar,
+                                               t.level = input$single_tLevel,
+                                               alpha.name = input$single_alphaName,
+                                               depth = depth_value,
+                                               prev.filter = input$single_prevFilter,
+                                               abund.filter = input$single_abundFilter,
+                                               bar.area.feature.no = input$single_barAreaFeatureNo,
+                                               heatmap.feature.no = input$single_heatmapFeatureNo,
+                                               dotplot.feature.no = input$single_dotplotFeatureNo,
+                                               vis.feature.level = input$single_visFeatureLevel,
+                                               test.feature.level = input$single_testFeatureLevel,
+                                               feature.dat.type = input$single_featureDatType,
+                                               feature.analysis.rarafy = input$single_featureAnalysisRarafy,
+                                               feature.mt.method = input$single_featureMtMethod,
+                                               feature.sig.level = input$single_featureSigLevel,
+                                               feature.box.axis.transform = input$single_featureBoxAxisTransform,
+                                               base.size = input$single_baseSize,
+                                               theme.choice = input$single_themeChoice,
+                                               output.file = input$single_outputFile)
 
-
-    # 更新 reportPath，以便用户可以下载报告
     reportPath(reportFile)
+
+    output$single_download_report_ui <- renderUI({
+      tags$div(
+        style = "color: green; margin-top: 20px; font-weight: bold;",
+        "Your single report is ready for download! ",
+        downloadLink('single_reportDownload', 'Click here to download')
+      )
+    })
+
+    removeModal()
+
   })
 
-  # 提供一个下载链接，用户可以通过该链接下载报告
-  output$reportDownload <- downloadHandler(
+  output$single_reportDownload <- downloadHandler(
     filename = function() {
       paste0("MicrobiomeStat_Report_", Sys.Date(), ".pdf")
     },
