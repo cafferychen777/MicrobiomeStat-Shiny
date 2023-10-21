@@ -74,7 +74,11 @@ Before you start, you need to have R and RStudio installed on your machine. If y
       "forcats",       
       "yaml",          
       "biomformat",   
-      "Biostrings"    
+      "Biostrings",
+      "shiny",
+      "shinyjs",
+      "shinythemes",
+      "shinyBS"
     )
     
     # Installing packages
