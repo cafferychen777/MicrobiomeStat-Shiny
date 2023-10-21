@@ -6,7 +6,7 @@ Welcome to the Microbiome-Shiny repository, the R Shiny interface for the Microb
 
 To access the application online, visit the following link:
 
-https://cafferyyang.shinyapps.io/MicrobiomeStat_Shiny/
+https://microbiomestat.shinyapps.io/MicrobiomeStat-Shiny/
 
 ## Local Deployment
 
