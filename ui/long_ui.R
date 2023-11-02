@@ -64,7 +64,7 @@ long_ui <-
              numericInput('long_baseSize', 'Base Font Size', value = 16),
              selectInput('long_themeChoice', 'Theme Choice',
                          choices = c("prism", "classic", "gray", "bw"), selected = "bw"),
-             textInput('long_outputFile', 'Output File Name', value = 'report.pdf'),
+             textInput('long_outputFile', 'Output File Name', value = 'MicrobiomeAnalysis_Report.pdf'),
              actionButton('long_runAnalysis', 'Run Analysis'),
              uiOutput("long_report_ready_message"),
              uiOutput("long_download_report_ui")
