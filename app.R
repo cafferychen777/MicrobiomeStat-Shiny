@@ -64,11 +64,13 @@ main_ui <- fluidPage(
   ),
 
   div(class = "info-panel",
-      "For technical concerns or encountered anomalies, kindly raise them through our ",
+      "For technical issues, please visit our ",
       tags$a(href="https://github.com/cafferychen777/MicrobiomeStat/issues", target="_blank",
-             icon("github", lib = "font-awesome"), " GitHub Issues Tracker"
-      ),
-      ". As an alternative approach, the corresponding R package is available for direct utilization."
+             icon("github", lib = "font-awesome"), " GitHub Issues Tracker"),
+      ". Note: Our server has 8GB RAM, which may cause disconnections with large datasets. If this occurs, consider deploying ",
+      tags$a(href="https://github.com/cafferychen777/MicrobiomeStat-Shiny", target="_blank",
+             "MicrobiomeStat-Shiny"),
+      " on your own server/PC, or use the R package directly."
   ),
 
   div(class = "footer-powered",
