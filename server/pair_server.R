@@ -95,4 +95,31 @@ server_pair <- function(input, output, session) {
     }
   )
 
+  output$downloadData4 <- downloadHandler(
+    filename = function() {
+      "peerj32_feature_tab.csv"
+    },
+    content = function(file) {
+      file.copy("data/peerj32_feature_tab.csv", file)
+    }
+  )
+
+  output$downloadData5 <- downloadHandler(
+    filename = function() {
+      "peerj32_meta_dat.csv"
+    },
+    content = function(file) {
+      file.copy("data/peerj32_meta_dat.csv", file)
+    }
+  )
+
+  output$downloadData6 <- downloadHandler(
+    filename = function() {
+      "peerj32_feature_ann.csv"
+    },
+    content = function(file) {
+      file.copy("data/peerj32_feature_ann.csv", file)
+    }
+  )
+
 }
