@@ -15,8 +15,17 @@ pair_ui <-
                fileInput('pair_metadata', 'Metadata (meta.dat)', accept = c('.txt', '.csv')),
                fileInput('pair_taxonomy', 'Taxonomy (feature.ann)', accept = c('.txt', '.csv')),
                fileInput('pair_phyloTree', 'Phylogenetic Tree (tree) - Optional', accept = c('.tree', '.nwk')),
-               helpText("Count, Metadata, and Taxonomy files should be formatted as text or CSV files. ",
-                        "The Phylogenetic Tree file should be in Newick format with a .tree or .nwk extension.")
+               tags$div(style = "text-align: left;",
+                        helpText(
+                          "Count, Metadata, and Taxonomy files should be formatted as text or CSV files. ",
+                          "The Phylogenetic Tree file should be in Newick format with a .tree or .nwk extension. ",
+                          tags$br(),
+                          "Example datasets: ",
+                          downloadLink("downloadData4", "Download Count (feature.tab)"), ", ",
+                          downloadLink("downloadData5", "Download Metadata (meta.dat)"), ", ",
+                          downloadLink("downloadData6", "Download Taxonomy (feature.ann)")
+                        )
+               )
              ),
              selectInput('pair_groupVar', 'Group Variable', choices = NULL),
              selectInput('pair_visAdjVars', 'Visual Adjust Variables', choices = NULL, multiple = TRUE),
@@ -59,7 +68,7 @@ pair_ui <-
              numericInput('pair_baseSize', 'Base Font Size', value = 16),
              selectInput('pair_themeChoice', 'Theme Choice',
                          choices = c("prism", "classic", "gray", "bw"), selected = "bw"),
-             textInput('pair_outputFile', 'Output File Name', value = 'report.pdf'),
+             textInput('pair_outputFile', 'Output File Name', value = 'MicrobiomeAnalysis_Report.pdf'),
              actionButton('pair_runAnalysis', 'Run Analysis'),
              uiOutput("pair_report_ready_message"),
              uiOutput("pair_download_report_ui")
