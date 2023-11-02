@@ -100,4 +100,31 @@ server_single <- function(input, output, session) {
     }
   )
 
+  output$downloadData1 <- downloadHandler(
+    filename = function() {
+      "peerj32_feature_tab.csv"
+    },
+    content = function(file) {
+      file.copy("data/peerj32_feature_tab.csv", file)
+    }
+  )
+
+  output$downloadData2 <- downloadHandler(
+    filename = function() {
+      "peerj32_meta_dat.csv"
+    },
+    content = function(file) {
+      file.copy("data/peerj32_meta_dat.csv", file)
+    }
+  )
+
+  output$downloadData3 <- downloadHandler(
+    filename = function() {
+      "peerj32_feature_ann.csv"
+    },
+    content = function(file) {
+      file.copy("data/peerj32_feature_ann.csv", file)
+    }
+  )
+
 }
