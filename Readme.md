@@ -19,71 +19,83 @@ Before you start, you need to have R and RStudio installed on your machine. If y
 - R: https://cran.r-project.org/
 - RStudio: https://www.rstudio.com/products/rstudio/download/
 
-### Installation
+### Running the Application Directly from GitHub
+
+One of the easiest ways to run this application locally is by using the `shiny::runGitHub()` function, which will download the code from GitHub and start the application. You can do this by running the following command in your R console:
+
+```r
+shiny::runGitHub("MicrobiomeStat-Shiny", "cafferychen777")
+```
+
+Please note that this method requires internet connection to download the application from GitHub every time you run it. 
+
+### Installation for Offline Use
+
+If you want to run the application offline, you need to clone the repository and install the required packages. Follow the steps below:
 
 1. **Clone the Repository**: Clone/download this repository to your local machine. If you have Git installed, you can use the following command in your terminal:
 
-    ```
-    git clone https://github.com/cafferychen777/MicrobiomeStat-Shiny.git
-    ```
+   ```
+   git clone https://github.com/cafferychen777/MicrobiomeStat-Shiny.git
+   ```
 
 2. **Set your Working Directory**: Open RStudio and set your working directory to the cloned repository. You can do this by using the `setwd()` function in R. For example:
 
-    ```r
-    setwd("/path/to/cloned/repo/Microbiome-Shiny")
-    ```
+   ```r
+   setwd("/path/to/cloned/repo/Microbiome-Shiny")
+   ```
 
-    Replace "/path/to/cloned/repo/Microbiome-Shiny" with the actual path to the cloned repository on your machine.
+   Replace "/path/to/cloned/repo/Microbiome-Shiny" with the actual path to the cloned repository on your machine.
 
 3. **Install Required Packages**: Install the necessary R packages. This includes `shiny`, `devtools`, `MicrobiomeStat`, and any other packages that the application depends on. You can install these packages using the `install.packages()` function. For example:
 
-    ```r
-    install.packages("devtools")
-    devtools::install_github("cafferychen777/MicrobiomeStat")
-    ```
+   ```r
+   install.packages("devtools")
+   devtools::install_github("cafferychen777/MicrobiomeStat")
+   ```
 
-    Here is a list of other required packages:
+   Here is a list of other required packages:
 
-    ```r
-    packages_to_install <- c(
-      "rlang",
-      "tibble",
-      "ggplot2",
-      "matrixStats",
-      "lmerTest",
-      "foreach",
-      "modeest",
-      "dplyr",
-      "pheatmap",
-      "tidyr",
-      "ggh4x",
-      "GUniFrac",
-      "stringr",
-      "rmarkdown",
-      "knitr",
-      "pander",
-      "tinytex",
-      "vegan",
-      "scales",
-      "ape",
-      "ggrepel",      
-      "parallel",     
-      "ggprism",     
-      "aplot",         
-      "philentropy",  
-      "forcats",       
-      "yaml",          
-      "biomformat",   
-      "Biostrings",
-      "shiny",
-      "shinyjs",
-      "shinythemes",
-      "shinyBS"
-    )
-    
-    # Installing packages
-    install.packages(packages_to_install)
-    ```
+   ```r
+   packages_to_install <- c(
+     "rlang",
+     "tibble",
+     "ggplot2",
+     "matrixStats",
+     "lmerTest",
+     "foreach",
+     "modeest",
+     "dplyr",
+     "pheatmap",
+     "tidyr",
+     "ggh4x",
+     "GUniFrac",
+     "stringr",
+     "rmarkdown",
+     "knitr",
+     "pander",
+     "tinytex",
+     "vegan",
+     "scales",
+     "ape",
+     "ggrepel",      
+     "parallel",     
+     "ggprism",     
+     "aplot",         
+     "philentropy",  
+     "forcats",       
+     "yaml",          
+     "biomformat",   
+     "Biostrings",
+     "shiny",
+     "shinyjs",
+     "shinythemes",
+     "shinyBS"
+   )
+   
+   # Installing packages
+   install.packages(packages_to_install)
+   ```
 
 ### Running the Shiny Application
 
