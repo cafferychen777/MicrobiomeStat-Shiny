@@ -5,7 +5,7 @@ account: a95dps-caffery-chen
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 10084156
-bundleId:
+bundleId: 7947112
 url: https://cafferyyang.shinyapps.io/MicrobiomeStat_Shiny/
 version: 1
 asMultiple: FALSE
