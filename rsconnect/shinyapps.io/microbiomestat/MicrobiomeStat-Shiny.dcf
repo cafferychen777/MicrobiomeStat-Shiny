@@ -5,7 +5,7 @@ account: microbiomestat
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 10264939
-bundleId: 7897868
+bundleId: 8132536
 url: https://microbiomestat.shinyapps.io/MicrobiomeStat-Shiny/
 version: 1
 asMultiple: FALSE
